@@ -34,7 +34,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
 
       Widget elementTile = InkWell(
         splashColor: Colors.transparent,
-        hoverColor: Colors.blue,
+        hoverColor: Colors.transparent,
         onHover: (value) {
           setState(() {
             value ? _isHoverings[i] = true : _isHoverings[i] = false;
@@ -45,6 +45,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
           items[i],
           style: TextStyle(
             color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+            fontSize: 18,
           ),
         ),
       );
@@ -75,11 +76,24 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
       heightFactor: 1,
       child: Padding(
         padding: EdgeInsets.only(
-          top: widget.screenSize.height * 0.6,
+          top: widget.screenSize.height * 0.5,
           left: ResponsiveWidget.isSmallScreen(context) ? widget.screenSize.width / 12 : widget.screenSize.width / 5,
           right: ResponsiveWidget.isSmallScreen(context) ? widget.screenSize.width / 12 : widget.screenSize.width / 5,
         ),
-        child: Container(),
+        child: Card(
+          elevation: 5,
+          color: Colors.black,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: widget.screenSize.height / 90,
+              bottom: widget.screenSize.height / 90,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: generateRowElements(),
+            ),
+          ),
+        ),
       ),
     );
   }

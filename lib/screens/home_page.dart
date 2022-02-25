@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: const Color.fromARGB(255, 40, 50, 55),
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 70),
         child: TopBarContent(opacity: _opacity),
@@ -46,12 +47,10 @@ class _HomePageState extends State<HomePage> {
               
               SizedBox(
                 width: screenSize.width,
-                child: AspectRatio(
-                  aspectRatio: 1 / 0.2,
-                  child: Image.asset(
+                height: screenSize.height * 0.54,
+                child: Image.asset(
                     "assets/images/cover.jpg",
                     fit: BoxFit.cover,
-                  ),
                 ),
               ),
 
