@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/widgets/top_bar_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,9 +34,10 @@ class _HomePageState extends State<HomePage> {
     _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 70),
-        child: //,
+        child: TopBarContent(opacity: _opacity),
       ),
       body: Column(
         children: [
