@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/widgets/floating_quick_access_bar.dart';
 import 'package:web_app/widgets/top_bar_content.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -42,15 +41,28 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
 
-          SizedBox(
-            width: screenSize.width,
-            child: AspectRatio(
-              aspectRatio: 1 / 0.2,
-              child: Image.asset("assets/images/cover.jpg", fit: BoxFit.cover,),
-            ),
+          Stack(
+            children: [
+              
+              SizedBox(
+                width: screenSize.width,
+                child: AspectRatio(
+                  aspectRatio: 1 / 0.2,
+                  child: Image.asset(
+                    "assets/images/cover.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+
+              FloatingQuickAccessBar(screenSize: screenSize),
+
+            ],
           ),
 
-          
+
+
+
         ],
       ),
     );
