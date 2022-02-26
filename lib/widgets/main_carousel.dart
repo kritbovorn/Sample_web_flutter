@@ -107,6 +107,7 @@ class _MainCarouselState extends State<MainCarousel> {
                   right: screenSize.width / 8,
                 ),
                 child: Card(
+                  color: Colors.black,
                   elevation: 5,
                   child: Padding(
                     padding: EdgeInsets.only(

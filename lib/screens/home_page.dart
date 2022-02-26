@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/widgets/bottom_bar.dart';
 import 'package:web_app/widgets/featured_heading.dart';
 import 'package:web_app/widgets/featured_tiles.dart';
 import 'package:web_app/widgets/floating_quick_access_bar.dart';
@@ -73,6 +74,10 @@ class _HomePageState extends State<HomePage> {
             MainHeading(screenSize: screenSize),
       
             const MainCarousel(),
+
+            SizedBox(height: screenSize.height / 10,),
+
+            const BottomBar(),
       
       
           ],
