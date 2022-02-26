@@ -31,7 +31,7 @@ class _TopBarContentState extends State<TopBarContent> {
     // var screenSize = MediaQuery.of(context).size;
 
     return Container(
-      color: Colors.white.withOpacity(widget.opacity),
+      color: const Color.fromARGB(255, 19, 17, 17).withOpacity(widget.opacity),
       child: Row(
         children: [
       
