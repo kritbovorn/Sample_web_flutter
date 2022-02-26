@@ -29,19 +29,24 @@ class HeaderMenu extends StatelessWidget {
 
                         },
 
-
                         onTap: () {
                           onTap;
                         },
                         child: Column(
                           children: [
                             
-                            Text(
-                              title,
-                              style: GoogleFonts.lato(
-                                color: visble ? const Color.fromARGB(255, 209, 165, 21) : Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                            FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 12, right: 12),
+                                child: Text(
+                                  title,
+                                  style: GoogleFonts.lato(
+                                    color: visble ? const Color.fromARGB(255, 209, 165, 21) : Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
                               ),
                             ),
                             const SizedBox(height: 8,),

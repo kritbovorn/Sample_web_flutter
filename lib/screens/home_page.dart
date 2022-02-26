@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     var screenSize = MediaQuery.of(context).size;
+    
     _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
 
     return Scaffold(

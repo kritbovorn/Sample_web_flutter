@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_app/responsive/responsive.dart';
+// import 'package:web_app/responsive/responsive.dart';
 
 class FloatingQuickAccessBar extends StatefulWidget {
 
@@ -33,22 +33,25 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
     for (int i = 0; i < items.length; i++) {
 
       Widget elementTile = InkWell(
-        splashColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-        onHover: (value) {
-          setState(() {
-            value ? _isHoverings[i] = true : _isHoverings[i] = false;
-          });
-        },
-        onTap: () {},
-        child: Text(
-          items[i],
-          style: TextStyle(
-            color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
-            fontSize: 18,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          onHover: (value) {
+            setState(() {
+              value ? _isHoverings[i] = true : _isHoverings[i] = false;
+            });
+          },
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: Text(
+              items[i],
+              style: TextStyle(
+                color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+                fontSize: 16,
+              ),
+            ),
           ),
-        ),
-      );
+        );
 
       Widget spacer = SizedBox(
         height: widget.screenSize.height / 20,
@@ -77,20 +80,24 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
       child: Padding(
         padding: EdgeInsets.only(
           top: widget.screenSize.height * 0.5,
-          left: ResponsiveWidget.isSmallScreen(context) ? widget.screenSize.width / 12 : widget.screenSize.width / 5,
-          right: ResponsiveWidget.isSmallScreen(context) ? widget.screenSize.width / 12 : widget.screenSize.width / 5,
+          // left: ResponsiveWidget.isSmallScreen(context) ? widget.screenSize.width / 12 : widget.screenSize.width / 10,
+          // right: ResponsiveWidget.isSmallScreen(context) ? widget.screenSize.width / 12 : widget.screenSize.width / 10,
+          left: widget.screenSize.width * 0.2,
+          right: widget.screenSize.width * 0.2,
         ),
-        child: Card(
-          elevation: 5,
-          color: Colors.black,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: widget.screenSize.height / 90,
-              bottom: widget.screenSize.height / 90,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: generateRowElements(),
+        child: FittedBox(
+          child: Card(
+            elevation: 5,
+            color: Colors.black,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: widget.screenSize.height / 80,
+                bottom: widget.screenSize.height / 80,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: generateRowElements(),
+              ),
             ),
           ),
         ),
