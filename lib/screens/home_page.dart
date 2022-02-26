@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_app/widgets/featured_heading.dart';
 import 'package:web_app/widgets/featured_tiles.dart';
 import 'package:web_app/widgets/floating_quick_access_bar.dart';
+import 'package:web_app/widgets/main_heading.dart';
 import 'package:web_app/widgets/top_bar_content.dart';
 
 class HomePage extends StatefulWidget {
@@ -66,6 +67,8 @@ class _HomePageState extends State<HomePage> {
             FeaturedHeading(screenSize: screenSize),
       
             FeaturedTiles(screenSize: screenSize),
+
+            MainHeading(screenSize: screenSize),
       
       
       
