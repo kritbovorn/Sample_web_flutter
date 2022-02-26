@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/widgets/featured_heading.dart';
 import 'package:web_app/widgets/floating_quick_access_bar.dart';
 import 'package:web_app/widgets/top_bar_content.dart';
 
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     var screenSize = MediaQuery.of(context).size;
-    
+
     _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
 
     return Scaffold(
@@ -59,6 +60,8 @@ class _HomePageState extends State<HomePage> {
 
             ],
           ),
+
+          FeaturedHeading(screenSize: screenSize),
 
 
 
