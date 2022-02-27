@@ -85,13 +85,14 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
       child: Row(
         children: [
       
-          const Expanded(child: SizedBox(),),
+          Expanded(
+            flex: _size.width < 800 ? 1 : 2,
+            child: const SizedBox(),
+            ),
       
           Expanded(
-            flex: 2,
+            flex: _size.width < 800 ? 5 : 5,
             child: _size.width < 800 ? Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
                 for (int i = 0; i < items.length; i++) 
@@ -133,11 +134,13 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                               padding: const EdgeInsets.all(4.0),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  items[i],
-                                  style: TextStyle(
-                                    color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
-                                    fontSize: 18,
+                                child: FittedBox(
+                                  child: Text(
+                                    items[i],
+                                    style: TextStyle(
+                                      color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+                                      fontSize: 18,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -154,7 +157,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
               ],
             ) 
             :
-             Card(
+            Card(
               color: Colors.black,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -163,10 +166,13 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                   children: generateRowElements(),
                 ),
               ),
+             ),
             ),
-          ),
       
-          const Expanded(child: SizedBox()),
+          Expanded(
+            flex: _size.width < 800 ? 1 : 2,
+            child: const SizedBox()
+            ),
         ],
       ),
     );
