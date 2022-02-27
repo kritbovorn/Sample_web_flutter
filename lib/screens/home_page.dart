@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:web_app/widgets/bottom_bar.dart';
 import 'package:web_app/widgets/featured_heading.dart';
 import 'package:web_app/widgets/featured_tiles.dart';
 import 'package:web_app/widgets/floating_quick_access_bar.dart';
 import 'package:web_app/widgets/main_carousel.dart';
 import 'package:web_app/widgets/main_heading.dart';
+import 'package:web_app/widgets/menu_drawer.dart';
 import 'package:web_app/widgets/top_bar_content.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,10 +43,26 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(255, 40, 50, 55),
-      appBar: PreferredSize(
+      appBar: screenSize.width < 800 ?  AppBar(
+        iconTheme: const IconThemeData(color: Colors.white70),
+        elevation: 0,
+        backgroundColor: Colors.black.withOpacity(_opacity),
+        title: Text(
+                      "Author",
+                      style: GoogleFonts.raleway(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 3,
+                      ),
+        ),
+      )
+      : 
+      PreferredSize(
         preferredSize: Size(screenSize.width, 70),
         child: TopBarContent(opacity: _opacity),
       ),
+      drawer: MenuDrawer(screenSize: screenSize),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
