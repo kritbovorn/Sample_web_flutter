@@ -25,10 +25,11 @@ class TilesMobile extends StatelessWidget {
           SizedBox(width: screenSize.width / 15,),
 
           ...Iterable<int>.generate(assets.length).map((int pageIndex) => Row(
+            
             children: [
 
               Column(
-                //
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
                   SizedBox(
@@ -45,7 +46,7 @@ class TilesMobile extends StatelessWidget {
 
                   //
                   Padding(
-                    padding: const EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.only(top: 30, left: 8),
                     child: Text(
                       title[pageIndex],
                       style: GoogleFonts.montserrat(fontSize: 18, fontWeight: FontWeight.w500, color: const Color.fromARGB(255, 145, 157, 166)),
