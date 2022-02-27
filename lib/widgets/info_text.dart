@@ -17,8 +17,8 @@ class InfoText extends StatelessWidget {
 
         Text(
           "$type:",
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: Colors.blueGrey[200],
             fontSize: 16,
           ),
         ),
@@ -27,7 +27,7 @@ class InfoText extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.white60,
               fontSize: 16,
             ),
           ),
