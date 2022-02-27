@@ -9,7 +9,7 @@ class FeaturedHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 60, bottom: 60),
+      padding: const EdgeInsets.only(top: 60, bottom: 20),
       child: screenSize.width < 600
           ? Row(
             children: [
