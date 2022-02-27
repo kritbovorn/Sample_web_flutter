@@ -20,7 +20,6 @@ class TilesMobile extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        //
         children: [
 
           SizedBox(width: screenSize.width / 15,),
@@ -45,9 +44,12 @@ class TilesMobile extends StatelessWidget {
                   ),
 
                   //
-                  Text(
-                    title[pageIndex],
-                    style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.w500),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Text(
+                      title[pageIndex],
+                      style: GoogleFonts.montserrat(fontSize: 18, fontWeight: FontWeight.w500, color: const Color.fromARGB(255, 145, 157, 166)),
+                    ),
                   )
 
                 ],

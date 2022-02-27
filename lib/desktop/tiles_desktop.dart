@@ -18,52 +18,61 @@ class TilesDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        top: screenSize.height * 0.05,
-        left: screenSize.width / 15,
-        right: screenSize.width / 15,
+      padding: const EdgeInsets.only(
+        top: 10,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
 
-          ...Iterable<int>.generate(assets.length).map((int pageIndex) => Column(
-            children: [
+          const Expanded(child: SizedBox(),),
 
-              SizedBox(
-                height: screenSize.width / 6,
-                width: screenSize.width / 3.8,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        assets[pageIndex],
-                        // ***
+          Expanded(
+            flex: 15,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                ...Iterable<int>.generate(assets.length).map((int pageIndex) => Column(
+                  children: [
+
+                    SizedBox(
+                      height: screenSize.width / 6,
+                      width: screenSize.width / 3.8,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                              assets[pageIndex],
+                              // ***
+                            ),
+                          ),
+                          
+                        ),
                       ),
                     ),
-                    
-                  ),
 
-                
-                ),
-              ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                      ),
+                      child: Text(
+                        title[pageIndex],
+                        style: GoogleFonts.montserrat(fontWeight: FontWeight.w500, color: const Color.fromARGB(255, 145, 157, 166)),
+                      ),
 
-              Padding(
-                padding: EdgeInsets.only(
-                  top: screenSize.height / 20,
-                ),
-                child: Text(
-                  title[pageIndex],
-                  style: GoogleFonts.montserrat(fontWeight: FontWeight.w500, color: const Color.fromARGB(255, 145, 157, 166)),
-                ),
+                    )
+                  ],
+                )),
+              ],
+            ),
+          ),
 
-              )
-            ],
-          )),
+          const Expanded(child: SizedBox()),
         ],
       ),
     );
   }
 }
+
