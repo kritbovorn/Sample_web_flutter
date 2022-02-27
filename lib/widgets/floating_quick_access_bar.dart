@@ -43,20 +43,17 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
       onTap: () {},
       child: Padding(
         padding: const EdgeInsets.all(4.0),
-        child: FittedBox(
-          fit: BoxFit.fitWidth,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              items[i],
-              style: TextStyle(
-                color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
-                fontSize: 18,
-              ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            items[i],
+            style: TextStyle(
+              color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+              fontSize: 18,
             ),
           ),
         ),
-      ),
+       ),
       );
 
       Widget spacer = SizedBox(
@@ -81,6 +78,8 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
   @override
   Widget build(BuildContext context) {
 
+    Size _size = MediaQuery.of(context).size;
+
     return Padding(
       padding: EdgeInsets.only(top: widget.screenSize.height * 0.5),
       child: Row(
@@ -90,7 +89,72 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
       
           Expanded(
             flex: 2,
-            child: Card(
+            child: _size.width < 800 ? Column(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+                for (int i = 0; i < items.length; i++) 
+                Card(
+                  color: Colors.black,
+                  elevation: 0,
+                  child: Row(
+                    children: [
+
+                      Expanded(
+                        flex: 5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            IconButton(  
+                              color: Colors.blueGrey,
+                              icon: Icon(icons[i]),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Expanded(
+                        flex: 7,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InkWell(
+                            splashColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            onHover: (value) {
+                              setState(() {
+                                value ? _isHoverings[i] = true : _isHoverings[i] = false;
+                              });
+                            },
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  items[i],
+                                  style: TextStyle(
+                                    color: _isHoverings[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+
+                    ],
+                  ),
+                )
+              ],
+            ) 
+            :
+             Card(
               color: Colors.black,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
