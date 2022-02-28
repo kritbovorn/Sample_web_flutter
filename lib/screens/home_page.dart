@@ -40,13 +40,15 @@ class _HomePageState extends State<HomePage> {
 
     _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
 
+    
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(255, 40, 50, 55),
-      appBar: screenSize.width < 800 ?  AppBar(
+      appBar: screenSize.width < 800 
+      ? AppBar(
         iconTheme: const IconThemeData(color: Colors.white70),
         elevation: 0,
-        backgroundColor: Colors.black.withOpacity(_opacity),
+        backgroundColor: Colors.black.withOpacity(_opacity < 0 ? 0.001 : _opacity),
         title: Text(
                       "Author",
                       style: GoogleFonts.raleway(
@@ -57,8 +59,7 @@ class _HomePageState extends State<HomePage> {
                       ),
         ),
       )
-      : 
-      PreferredSize(
+      : PreferredSize(
         preferredSize: Size(screenSize.width, 70),
         child: TopBarContent(opacity: _opacity),
       ),

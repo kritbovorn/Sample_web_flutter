@@ -79,7 +79,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(75),
-                  child: Image.asset("images/logo.jpg", width: 80,),
+                  child: Image.asset("assets/images/logo.jpg", width: 80,),
                 ),
               ),
             ),
