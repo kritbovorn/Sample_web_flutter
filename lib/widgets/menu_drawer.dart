@@ -93,7 +93,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Text(
-                  'Copyright © 2021 | DBestech',
+                  'Copyright © 2022 | Kritbovorn',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,

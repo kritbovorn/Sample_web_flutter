@@ -45,7 +45,7 @@ class _TopBarContentState extends State<TopBarContent> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 12, right: 12),
                     child: Text(
-                      "Author",
+                      "Kritbovorn",
                       style: GoogleFonts.raleway(
                         color: Colors.white,
                         fontSize: 26,

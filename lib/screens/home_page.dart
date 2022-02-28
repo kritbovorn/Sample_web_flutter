@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.black.withOpacity(_opacity < 0 ? 0.001 : _opacity),
         title: Text(
-                      "Author",
+                      "Kritbovorn",
                       style: GoogleFonts.raleway(
                         color: Colors.white,
                         fontSize: 26,
